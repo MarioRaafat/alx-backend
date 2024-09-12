@@ -1,39 +1,21 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+"""Basic caching module.
+"""
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
+    """Represents an object that allows storing and
+    retrieving items from a dictionary.
     """
-    BasicCache class that inherits from BaseCaching.
-    
-    This class is a basic caching system that allows adding and retrieving items 
-    to/from a cache. The cache does not have a limit on the number of items it can hold.
-    """
-
     def put(self, key, item):
+        """Adds an item in the cache.
         """
-        Add an item in the cache.
-        
-        If the key or item is None, this method does nothing.
-        
-        Args:
-            key (str): The key under which the item will be stored.
-            item (Any): The item to be stored in the cache.
-        """
-        if key and item:
-            self.cache_data[key] = item
-
+        if key is None or item is None:
+            return
+        self.cache_data[key] = item
 
     def get(self, key):
-        """
-        Get an item by key from the cache.
-        
-        If the key does not exist in the cache, returns None.
-        
-        Args:
-            key (str): The key of the item to be retrieved.
-        
-        Returns:
-            Any: The item stored in the cache for the given key, or None if the key does not exist.
+        """Retrieves an item by key.
         """
         return self.cache_data.get(key, None)
