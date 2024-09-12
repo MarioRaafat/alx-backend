@@ -36,6 +36,4 @@ class BasicCache(BaseCaching):
         Returns:
             Any: The item stored in the cache for the given key, or None if the key does not exist.
         """
-        if key in self.cache_data:
-            return self.cache_data[key]
-        return None
+        return self.cache_data.get(key, None)
